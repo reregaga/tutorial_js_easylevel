@@ -102,3 +102,30 @@
     }
   </script> 
 ```
+
+# 15. Radiobutton
+```html
+<p><input type='radio' name='fruit' value='яблоки'> Яблоки</p>
+  <p><input type='radio' name='fruit' value='груши'> Груши</p>
+  <button id=a>Push</button>
+  <script>
+    var radio = [...document.querySelectorAll('[name=fruit]')];
+    
+    for (let i=0; i<radio.length; i++){
+      radio[i].onchange = testRadio;
+    }
+    function testRadio() {
+      console.log(this.value);
+    }
+    
+    a.onclick = checkRadio;
+    function checkRadio(){
+      for (let i=0; i<radio.length; i++){
+        if (radio[i].checked){
+          alert(radio[i].value);
+          break;
+        }
+      }
+    }
+  </script>
+```
