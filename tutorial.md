@@ -172,3 +172,56 @@ document.querySelector('#btn').onclick = function(){ //anonymous function
 	sum(1,2);
 }
 ```
+
+# 21. Mouse events
+```html
+<style>
+#one{
+	width: 50px;
+	height: 50px;
+	background: orange;
+}
+</style>
+<div id=one></div>
+<script>
+var block = document.querySelector('#one');
+var a = 0;
+// mouse -- click
+block.onclick = function(){
+	this.style.background = 'green';
+	this.onclick = null                // cancel event
+}
+// mouse -- double click
+block.ondblclick = function(){
+	this.style.background = 'red';
+}
+// mouse -- click right mouse button
+block.oncontextmenu = function(){
+	this.style.background = 'black';
+	return false; // ATTENTION! addition for prevent browser to show context menu after click
+}
+// mouse -- hover
+block.onmouseenter = function(){
+	console.log('mouse in block!');
+}
+// mouse -- unhover
+block.onmouseleave = function(){
+	console.log('mouse out from block!');
+}
+// mouse -- move in
+block.onmousemove = function(){
+	a++;
+	this.style.width = 50 + a + 'px';
+}
+// mouse -- press and hold button
+block.onmousedown = function(event){
+	this.style.background = 'cyan';
+	console.log('button: ' + event.button); // show type of mouse button (0 - left button, 1 - scroll click, 2 - right button)
+	console.log('which: ' + event.which); // show type of mouse button (not cross-browser version)
+}
+// mouse -- unpress button
+block.onmouseup = function(){
+	this.style.background = 'pink';
+}
+</script>
+```
