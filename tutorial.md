@@ -280,3 +280,19 @@ myslide.onmouseleave = function(event){
 }
 </script>
 ```
+
+# 25. Keyboard events
+```javascript
+document.onkeypress = function(event){
+	console.log(event);        // altKey, charCode, keyCode, ...
+	console.log(event.key)     // a, ф, 2, , Z, /, ...
+	if (event.shiftKey) {
+		console.log('Shift pressed')
+	}
+	if (event.keyCode<48 || event.keyCode>57){
+		console.log('no digit!');
+		return false;      // cancel put symbol to input or smth
+	}
+	
+}
+```
