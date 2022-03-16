@@ -158,3 +158,17 @@ function cssGenerator() {
 }
 </script>
 ```
+
+# 20. Function
+```javascript
+function sum(a,b){
+	a = a || 10; // undefined || 10 return 10
+	b = b || 10; // undefined || 20 return 20
+	return alert(a+b);
+}
+
+//document.querySelector('#btn').onclick = sum; // Error
+document.querySelector('#btn').onclick = function(){ //anonymous function
+	sum(1,2);
+}
+```
