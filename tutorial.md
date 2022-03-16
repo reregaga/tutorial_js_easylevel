@@ -312,3 +312,34 @@ function getRnd(min,max){
 }
 </script>
 ```
+
+# 27. Keyboard arrows moving block
+```html
+<style>
+*{margin:0;}
+#block{
+	width: 50px;
+	height: 50px;
+	background: orange;
+	position: absolute;
+}
+</style>
+<div id=block></div>
+<script>
+var left = 0;
+var top1 = 0;
+document.onkeydown = function(event){ // no onkeypress cuz onkeypress not detect arrows
+	if(event.key == 'ArrowRight'){
+		block.style.left = left + 'px';
+		left++;
+	}
+	if(event.key == 'ArrowDown'){
+		block.style.top = top1 + 'px';
+		top1++;
+	}
+}
+document.onkeyup = function(event){
+	console.log('inpress key');
+}
+</script>
+```
