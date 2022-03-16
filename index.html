@@ -392,5 +392,64 @@ window.onload = function(){              // alternative to <script src='' defer>
 }
 </script>
 " width="100%" height="200px"></iframe>
+	<h1>31. App - Tic-tac-toe</h1>
+<iframe srcdoc="
+<style>
+#game{
+	width: 150px;
+	height: 150px;
+	background: orange;
+}
+.block{
+	width: 50px;
+	height: 50px;
+	float: left;
+	border: 1px solid white;
+	box-sizing: border-box;  /*fit border to in element*/
+	line-height: 50px;
+	text-align: center;
+	font-size: 40px;
+}
+</style>
+<div id=game></div>
+<script>
+window.onload = function(){
+	for(let i = 0; i < 9; i++){
+		game.innerHTML += '<div class=block></div>'
+	}
+	var hod = 0;
+	game.onclick = function(event){
+		if(event.target.className == 'block'){
+			if(hod%2 == 0){
+				event.target.innerHTML = 'X';
+			}
+			else {event.target.innerHTML = '0';}
+			hod++;
+			checkWinner();
+		}
+	}
+	function checkWinner(){
+		var ab = [...document.querySelectorAll('.block')];
+		if (ab[0].innerHTML=='X' && ab[1].innerHTML=='X' && ab[2].innerHTML=='X'){alert('X win!')}
+		else if (ab[3].innerHTML=='X' && ab[4].innerHTML=='X' && ab[5].innerHTML=='X'){alert('X win!')}
+		else if (ab[6].innerHTML=='X' && ab[7].innerHTML=='X' && ab[8].innerHTML=='X'){alert('X win!')}
+		else if (ab[0].innerHTML=='X' && ab[3].innerHTML=='X' && ab[6].innerHTML=='X'){alert('X win!')}
+		else if (ab[1].innerHTML=='X' && ab[4].innerHTML=='X' && ab[7].innerHTML=='X'){alert('X win!')}
+		else if (ab[2].innerHTML=='X' && ab[5].innerHTML=='X' && ab[8].innerHTML=='X'){alert('X win!')}
+		else if (ab[0].innerHTML=='X' && ab[4].innerHTML=='X' && ab[8].innerHTML=='X'){alert('X win!')}
+		else if (ab[2].innerHTML=='X' && ab[4].innerHTML=='X' && ab[6].innerHTML=='X'){alert('X win!')}
+		//
+		else if (ab[0].innerHTML=='0' && ab[1].innerHTML=='0' && ab[2].innerHTML=='0'){alert('0 win!')}
+		else if (ab[3].innerHTML=='0' && ab[4].innerHTML=='0' && ab[5].innerHTML=='0'){alert('0 win!')}
+		else if (ab[6].innerHTML=='0' && ab[7].innerHTML=='0' && ab[8].innerHTML=='0'){alert('0 win!')}
+		else if (ab[0].innerHTML=='0' && ab[3].innerHTML=='0' && ab[6].innerHTML=='0'){alert('0 win!')}
+		else if (ab[1].innerHTML=='0' && ab[4].innerHTML=='0' && ab[7].innerHTML=='0'){alert('0 win!')}
+		else if (ab[2].innerHTML=='0' && ab[5].innerHTML=='0' && ab[8].innerHTML=='0'){alert('0 win!')}
+		else if (ab[0].innerHTML=='0' && ab[4].innerHTML=='0' && ab[8].innerHTML=='0'){alert('0 win!')}
+		else if (ab[2].innerHTML=='0' && ab[4].innerHTML=='0' && ab[6].innerHTML=='0'){alert('0 win!')}
+	}
+}
+</script>
+" width="100%" height="200px"></iframe>
 </body>
 </html>
