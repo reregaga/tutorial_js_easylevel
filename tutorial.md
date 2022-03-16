@@ -343,3 +343,47 @@ document.onkeyup = function(event){
 }
 </script>
 ```
+
+# 28. Mouse wheel event
+```html
+<style>
+#test{
+	width: 600px;
+	height: 100px;
+	background: yellow;
+	margin: 10px;
+	position: relative;
+}
+#test2{
+	width: 10px;
+	height: 100px;
+	background: blue;
+	position: absolute;
+	left: 290px;
+	top: 0;
+}
+</style>
+<p>Direction: <span id=line></span></p>
+<p>Speed: <span id=speed></span></p>
+<div id=test>
+	<div id=test2></div>
+</div>
+<script>
+document.onwheel = function(event){
+	if (event.deltaY > 0){ line.innerHTML = 'down'; }
+	else                 { line.innerHTML = 'up'; }
+	var speed_ = event.deltaY;
+	speed_ = Math.abs(speed_);
+	if     (speed_ < 100) {speed.innerHTML = 'low'}
+	else if(speed_ < 150) {speed.innerHTML =	'middle'}
+	else                 {speed.innerHTML = 'high'}
+}
+var left = 290;
+test.onwheel = function(event){
+	var line = event.deltaY;
+	left = left + 0.2*line;  // 0.2*  for reduce speed
+	test2.style.left = left + 'px';
+	return false; // cancel vertical page wheeling
+}
+</script>
+```
