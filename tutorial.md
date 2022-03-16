@@ -239,3 +239,44 @@ document.onmousemove = function(){
 }
 </script>
 ```
+
+# 23. APP - Photo differ
+```html
+<style>
+#myslide{
+	width: 240px;
+	height: 240px;
+	border: 3px solid black;
+	position: relative;
+	overflow: hidden;
+}
+#one, #two{
+	width: 240px;
+	height: 240px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	overflow: hidden;
+	transition: all ease 500ms;
+}
+#one { background: yellow; }
+#two { background: blue; }
+</style>
+<div id=myslide>
+	<div id=one>
+		<img src='https://img.icons8.com/fluency/240/000000/sun.png' />
+	</div>
+	<div id=two>
+		<img src='https://img.icons8.com/material-rounded/240/000000/sun--v1.png' />
+	</div>
+</div>
+<script>
+myslide.onmousemove = function(event){
+	var x  = event.offsetX; // coord mouse relative by parent block
+	two.style.width = x + 'px';
+}
+myslide.onmouseleave = function(event){
+	two.style.width = '240px';
+}
+</script>
+```
