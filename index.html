@@ -267,5 +267,22 @@ myslide.onmouseleave = function(event){
 }
 </script>
 " width="100%" height="250px"></iframe>
+	<h1>26. Password trick</h1>
+<iframe srcdoc="
+<style>
+</style>
+<input type='text' id=test />
+<script>
+var str = ''; 
+test.onkeypress = function(event){
+	str = str + event.key; // get symbol
+	this.value += String.fromCharCode(getRnd(65,122));
+	return false;          // cancel put symbol to input
+}
+function getRnd(min,max){
+	return Math.floor(Math.random() * (max-min))+min;
+}
+</script>
+" width="100%" height="100px"></iframe>
 </body>
 </html>
