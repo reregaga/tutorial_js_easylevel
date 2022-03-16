@@ -129,3 +129,32 @@
     }
   </script>
 ```
+
+# 16. App - CSS generator
+```html
+<style>
+#test{
+	width: 150px;
+	height: 150px;
+	background: orange;
+	margin: 10px;
+}
+#out{
+	width: 300px;
+	height: 25px;
+	margin: 10px;
+}
+</style>
+<p>Border-radius: <input type='range' id=r1 value='0'></p>
+<div id=test></div>
+<textarea id=out></textarea>
+<script>
+document.querySelector('#r1').oninput = cssGenerator; // oninput - every range moving
+function cssGenerator() {
+	var div = document.querySelector('#test');
+	var out = document.querySelector('#out');
+	div.style.borderRadius = this.value + 'px';
+	out.innerHTML = 'border-radius: '+this.value+'px';
+}
+</script>
+```
