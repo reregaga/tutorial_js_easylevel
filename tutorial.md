@@ -296,3 +296,19 @@ document.onkeypress = function(event){
 	
 }
 ```
+
+# 26. Password trick
+```html
+<input type='text' id=test />
+<script>
+var str = ''; 
+test.onkeypress = function(event){
+	str = str + event.key; // get symbol
+	this.value += String.fromCharCode(getRnd(65,122));
+	return false;          // cancel put symbol to input
+}
+function getRnd(min,max){
+	return Math.floor(Math.random() * (max-min))+min;
+}
+</script>
+```
