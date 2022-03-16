@@ -225,3 +225,17 @@ block.onmouseup = function(){
 }
 </script>
 ```
+
+# 22. Img follow cursor
+```html
+<script>
+document.onmousemove = function(){
+	document.body.insertAdjacentHTML('beforeEnd', '<img  id=cat src=https://img.icons8.com/emoji/96/000000/cat-emoji.png />');
+	cat.style.position = 'fixed';
+	document.onmousemove = function(event){
+		cat.style.left = event.clientX + 10 + 'px';
+		cat.style.top = event.clientY + 10 + 'px';
+	}
+}
+</script>
+```
