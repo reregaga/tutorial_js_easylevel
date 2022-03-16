@@ -483,3 +483,25 @@ window.onload = function(){
 }
 </script>
 ```
+
+# 32. LocalStorage
+```html
+<button id=green>Green</button>
+<button id=red>Red</button>
+<script>
+window.onload = function(){
+	if(localStorage.getItem('mybgcolor')!== null){
+		var color = localStorage.getItem('mybgcolor');
+		document.body.style.background = color;
+	}
+	green.onclick = function(){
+		document.body.style.background = 'green';
+		localStorage.setItem('mybgcolor','green'); // values only strings
+	}
+	red.onclick = function(){
+		document.body.style.background = 'red';
+		localStorage.setItem('mybgcolor','red'); // values only strings
+	}
+}
+</script>
+```
