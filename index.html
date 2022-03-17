@@ -510,5 +510,46 @@ window.onload = function(){
 }
 </script>
 " width="100%" height="200px"></iframe>
+	<h1>35. App - Clock with js</h1>
+<iframe srcdoc="
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+.s0 { fill: #ff0000;stroke: #ff0000 }
+.s1 { fill: #0000ff;stroke: #0000ff }
+#clock{
+	width:700px;
+	height: 700px;
+	border: 1px solid brown;
+	position: relative;
+}
+#second, #minute{
+	display:block;
+	position: absolute;
+	left: 200px;
+	top: 0;
+	/*transition: all ease 500ms;*/
+}
+</style>
+<div id=clock>
+<svg id=minute version='1.2' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 700' width='300' height='700'><path id='Layer 1' class='s1' d='m136 53h29v325h-29z' /></svg>
+<svg id=second version='1.2' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 700' width='300' height='700'><path id='Shape 1' class='s0' d='m147 92h7v305h-7z' /></svg>
+</div>
+<script>
+window.onload = function(){
+	setInterval(fSec, 1000);
+	var sec = 0;
+	var min = 0;
+	function fSec(){
+		second.style.transform = 'rotate('+sec+'deg)';
+		minute.style.transform = 'rotate('+min+'deg)';
+		if(sec+6 == 366) {
+			sec = 0;
+			min +=6;
+		}
+		sec+=6;
+	}
+}
+</script>
+" width="100%" height="750px"></iframe>
 </body>
 </html>
