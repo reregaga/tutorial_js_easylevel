@@ -655,3 +655,39 @@ window.onload = function(){
 }
 </script>
 ```
+
+# 37. Columns height equalify
+```html
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+#left, #right{
+	float: left;
+	width: 30%;
+}
+#left{ background: coral; }
+#right{ background: orange; }
+</style>
+<div id=left>
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</div>
+<div id=right>
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+</div>
+<script>
+window.onload = function(){
+	equalHeight();
+	function equalHeight(){
+	    left.style.height = 'auto';
+		right.style.height = 'auto';
+		var leftH = left.offsetHeight;
+		var rightH = right.offsetHeight;
+		var max = Math.max(leftH, rightH);
+		left.style.height = max+'px';
+		right.style.height = max+'px';
+	}
+	
+	window.onresize = equalHeight;
+}
+</script>
+```
