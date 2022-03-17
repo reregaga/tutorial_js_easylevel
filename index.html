@@ -653,5 +653,22 @@ window.onload = function(){
 }
 </script>
 " width="100%" height="700px"></iframe>
+	<h1>38. Detect Desktop and Mobile</h1>
+<iframe srcdoc="
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+</style>
+<p id=out></p>
+<script>
+window.onload = function(){
+    out.innerHTML = navigator.userAgent;
+	if(navigator.userAgent.match('iPhone') || navigator.userAgent.match('Android')){
+		console.log('Mobile');
+	}
+	else console.log('Desktop');
+	
+}
+</script>
+" width="100%" height="200px"></iframe>
 </body>
 </html>
