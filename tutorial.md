@@ -705,3 +705,64 @@ window.onload = function(){
 }
 </script>
 ```
+
+# 39. Scroll effect layers
+```html
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+#jlehmann{
+	width: 500px;
+	height: 200px;
+	border: 5px solid black;
+	position: relative;
+	overflow: hidden;
+}
+.red{background:red;z-index:50;}
+.blue{background:blue;z-index:49;}
+.yellow{background:yellow;z-index:48;}
+.layer{
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+</style>
+<div id=jlehmann>
+	<div class='layer red'></div>
+	<div class='layer blue'></div>
+	<div class='layer yellow'></div>
+</div>
+<script>
+window.onload = function(){
+	var mas = document.querySelectorAll('.layer');
+	var j = 0;
+	var y = 0;
+	// onscroll vs onmousewheel ?
+	jlehmann.onmousewheel = function(event){
+        y = y - Math.round(event.deltaY);
+        if(j !== mas.length-1){ // cancel yellow block scrolling
+            if (j===0 && y>0){  // blocking red block to scroll down
+                y=0
+            } 
+            else {
+                mas[j].style.top = y*0.4 + 'px';
+            }
+            //jlehmann.onmousewheel = null;
+        }
+        else if (event.deltaY < 0){
+            y = 1;
+        }
+        console.log(event.deltaY + ' y:' + y + ' j:' + j);
+		if(-(y*0.4) >= 200){
+			j++; y=0;
+		}
+        else if(-1*(y*0.4)< 0 && j>0){
+            j--;
+            y = y*0.4 - 500; 
+        }
+	}
+}
+//200px / 5000 = 0.4   // 5000 imaged digit, 200px is height from styles
+</script>
+```
