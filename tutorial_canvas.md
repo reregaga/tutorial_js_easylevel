@@ -258,3 +258,35 @@ window.onload = function(){
 }
 </script>
 ```
+
+# 7. Canvas - Spirograph
+```html
+<style>
+#c{
+	width: 600px;
+	height: 600px;
+	border: 3px solid black;
+}
+</style>
+<canvas id=c width=600 height=600>Canvas not supported!</canvas>
+<script>
+window.onload = function(){
+	var ctx = c.getContext('2d');
+	
+	var R = 150;
+	var r = 90;
+	var d = 80;
+	var teta = 0;
+	var timer;
+	
+	spiro();
+	function spiro(){
+		var x = (R-r)*Math.cos(teta) + d*Math.cos((R-r)*teta/r);
+		var y = (R-r)*Math.sin(teta) + d*Math.sin((R-r)*teta/r);
+		teta += 0.1;
+		ctx.fillRect(3*x+300,3*y+300,4,4);
+		timer = setTimeout(spiro, 50);
+	}
+}
+</script>
+```
