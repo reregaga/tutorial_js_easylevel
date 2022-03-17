@@ -691,3 +691,17 @@ window.onload = function(){
 }
 </script>
 ```
+
+# 38. Detect Desktop and Mobile
+```html
+<p id=out></p>
+<script>
+window.onload = function(){
+	if(navigator.userAgent.match('iPhone') || navigator.userAgent.match('Android')){
+		console.log('Mobile');
+	}
+	else console.log('Desktop');
+	
+}
+</script>
+```
