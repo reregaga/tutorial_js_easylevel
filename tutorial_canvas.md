@@ -377,3 +377,40 @@ window.onload = function(){
 }
 </script>
 ```
+
+# 9. Canvas - Curves
+```html
+<style>
+#c{
+	width: 400px;
+	height: 200px;
+	border: 3px solid black;
+}
+</style>
+<canvas id=c width=400 height=200>Canvas not supported!</canvas>
+<script>
+window.onload = function(){
+	var ctx = c.getContext('2d');
+	
+	ctx.moveTo(200,50);
+	ctx.quadraticCurveTo(150,0,100,50);
+	ctx.quadraticCurveTo(50,150,200,180);
+	ctx.quadraticCurveTo(350,150,300,50);
+	ctx.quadraticCurveTo(250,0,200,50);
+	ctx.stroke();
+	ctx.fillStyle = 'red';
+	ctx.fill();
+	
+	c.onmousemove = function(event){
+		var x = event.offsetX;
+		var y = event.offsetY;
+		ctx.clearRect(0,0,400,200);
+		ctx.beginPath();
+		ctx.moveTo(50,50);
+		ctx.quadraticCurveTo(x,y,50,150);
+		ctx.closePath();
+		ctx.stroke();
+	}
+}
+</script>
+```
