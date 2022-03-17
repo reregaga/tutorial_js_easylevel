@@ -28,3 +28,51 @@ window.onload = function(){
 }
 </script>
 ```
+
+# 2. Canvas - Line
+```html
+<style>
+#c{
+	width: 400px;
+	height: 200px;
+	border: 3px solid black;
+}
+</style>
+<canvas id=c width=400 height=200>Canvas not supported!</canvas>
+<script>
+window.onload = function(){
+	var ctx = c.getContext('2d');
+	
+	ctx.beginPath(); // for reset previous style and width!
+	ctx.moveTo(100, 50);
+	ctx.lineTo(150, 150);
+	ctx.strokeStyle = 'red';
+	ctx.lineWidth = 5;
+	ctx.stroke();
+	
+	ctx.beginPath(); // for reset previous style and width!
+	ctx.strokeStyle = 'blue';
+	ctx.lineWidth = 20;
+	ctx.moveTo(200, 50);
+	ctx.lineTo(300, 50);
+	ctx.lineTo(300, 100);
+	ctx.lineCap = 'round';
+	ctx.lineCap = 'butt'; // for connect corner
+	ctx.stroke();
+	
+	ctx.clearRect(0,0,400,200);
+	
+	// triangle
+	ctx.beginPath();
+	ctx.moveTo(50,150);
+	ctx.lineTo(150,50);
+	ctx.lineTo(200,150);
+	ctx.lineWidth = 5;
+	ctx.lineCap = 'butt';
+	ctx.fillStyle = 'yellow';
+	ctx.closePath();  // autoclose path
+	ctx.stroke();
+	ctx.fill();
+}
+</script>
+```
