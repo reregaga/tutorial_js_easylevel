@@ -1,0 +1,30 @@
+# 1. Canvas - Rectangle
+```html
+<style>
+#c{
+	width: 400px;
+	height: 200px;
+	border: 3px solid black;
+}
+</style>
+<canvas id=c width=400 height=200>Canvas not supported!</canvas>
+<script>
+window.onload = function(){
+	var ctx = c.getContext('2d');
+	
+	// 1nd rectangle
+	ctx.fillStyle = 'red'; // fill color
+	ctx.fillRect(100/*x*/,50/*y*/,150/*width*/,75/*height*/);//rectangle
+	ctx.clearRect(0,0,400,200); // clear all canvas
+	//ctx.clearRect(150,0,400,200); // clear part of canvas
+	
+	// 2nd rectangle
+	ctx.rect(50,10,100,100);
+	ctx.strokeStyle = 'green';
+	ctx.lineWidth = '10';
+	ctx.stroke();
+	ctx.fillStyle = 'orange';
+	ctx.fill();
+}
+</script>
+```
